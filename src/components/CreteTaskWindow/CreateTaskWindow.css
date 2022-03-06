@@ -1,0 +1,44 @@
+.CreateTaskWindow {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.651) 0%,
+    rgba(255, 255, 255, 0.884) 76%
+  );
+
+  border: 0px;
+  border-radius: 20px 20px 0px 0px;
+  margin-top: 20px;
+}
+
+.CreateTaskWindow button:hover {
+  transform: scale(1.05);
+}
+
+.CTW-title {
+  padding-top: 50px;
+  font-size: 37px;
+  font-weight: 500;
+}
+
+.CTW-sub {
+  padding-top: 50px;
+
+  font-size: small;
+  font-weight: 700;
+}
+
+.CTW-img {
+  flex-grow: 1;
+  background-image: url("../../../public/portada.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

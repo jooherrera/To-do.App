@@ -1,16 +1,22 @@
 export interface ITodoItemProps {
-  text: string;
+  item: ITodo;
 }
 
 export interface ITodoListProps {
-  children: any;
+  todos: ITodo[];
 }
 
 export interface ITodoCreateButtonProps {
-  sign: string;
+  name: string;
 }
 
 export interface ITodo {
+  id: number;
   text: string;
   completed: boolean;
+}
+
+export interface IInputProps {
+  placeholder: string;
+  isSearch?: boolean;
 }

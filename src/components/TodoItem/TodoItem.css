@@ -1,0 +1,57 @@
+.TodoItem-Container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(226, 226, 226, 0.616);
+  margin: 20px 0px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.TodoDone {
+  color: rgb(146, 146, 146);
+  text-decoration: line-through;
+}
+
+.TodoItem-Container p {
+  width: 100%;
+}
+.centerDiv {
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.TodoItem-Container span {
+  width: 15%;
+  padding: 0;
+  border: none;
+}
+
+.checkBtnFalse {
+  color: grey;
+}
+.checkBtnFalse:hover {
+  transform: scale(1.3);
+  color: grey;
+}
+
+.checkBtn {
+  color: green;
+}
+
+.checkBtn:hover {
+  transform: scale(1.3);
+  color: green;
+}
+
+.deleteBtn {
+  /* color: red; */
+  flex-grow: 1;
+}
+
+.deleteBtn:hover {
+  transform: scale(1.4);
+  color: rgb(255, 0, 0);
+}
