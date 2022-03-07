@@ -21,6 +21,13 @@
 .CreateTaskWindow button:hover {
   transform: scale(1.05);
 }
+.CreateTaskWindow button {
+  width: 25%;
+}
+
+.CTW-Input {
+  width: 80%;
+}
 
 .CTW-title {
   padding-top: 50px;
@@ -37,7 +44,7 @@
 
 .CTW-img {
   flex-grow: 1;
-  background-image: url("../../../public/portada.png");
+  background-image: url('../../../public/portada.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
