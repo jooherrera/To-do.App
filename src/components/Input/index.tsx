@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { context } from '../../context'
 import { IInputProps } from '../../types'
 import './Input.css'
 
-export const Input = ({
-  placeholder,
-  isSearch,
-  searchValue,
-  setSearchValue,
-}: IInputProps) => {
+export const Input = (props: IInputProps) => {
+  const { placeholder, isSearch } = props
+  const { setSearchValue, searchValue } = useContext(context)
   const [value, setValue] = useState('')
   const [clicked, setClicked] = useState(false)
 

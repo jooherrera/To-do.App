@@ -2,8 +2,8 @@ import React, { Dispatch } from 'react'
 
 export interface ITodoItemProps {
   item: ITodo
-  onComplete(id: number): void
-  onDelete(id: number): void
+  // onComplete(id: number): void
+  // onDelete(id: number): void
 }
 
 export interface ITodoListProps {
@@ -22,7 +22,7 @@ export interface ITodo {
   completed: boolean
 }
 
-export interface IInputProps extends ITodoSearchProps {
+export interface IInputProps {
   placeholder: string
   isSearch?: boolean
 }
@@ -38,6 +38,8 @@ export interface ITodiCounterProps {
 }
 
 export interface IAppUIProps {
+  loading: boolean
+  error: boolean
   completedTodos: number
   totalTodos: number
   searchValue: string
@@ -46,4 +48,23 @@ export interface IAppUIProps {
   filteredTodos: ITodo[]
   completeTodo: (id: number) => void
   deleteTodo: (id: number) => void
+}
+
+export interface IContext {
+  loading: boolean
+  error: boolean
+  completedTodos: number
+  totalTodos: number
+  searchValue: string
+  setSearchValue: Dispatch<React.SetStateAction<string>>
+  todos: ITodo[]
+  filteredTodos: ITodo[]
+  completeTodo: (id: number) => void
+  deleteTodo: (id: number) => void
+  statusModal: boolean
+  setStatusModal: Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface IProvider {
+  children: IContext
 }

@@ -1,0 +1,11 @@
+.modal {
+  /* background-color: red; */
+  /* display: none; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 30%;
+}
+#modal {
+}

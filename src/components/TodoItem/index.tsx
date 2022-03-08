@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { context } from '../../context'
 import { ITodo, ITodoItemProps } from '../../types'
 import './TodoItem.css'
 
 export const TodoItem = (props: ITodoItemProps) => {
-  const deleteHandle = () => {
-    alert('Se ha eliminado la task')
+  const { completeTodo, deleteTodo } = useContext(context)
+
+  const handleComplete = (id: number) => {
+    if (completeTodo) {
+      completeTodo(id)
+    }
+  }
+
+  const handleDelete = (id: number) => {
+    if (deleteTodo) {
+      deleteTodo(id)
+    }
   }
 
   return (
@@ -14,7 +25,7 @@ export const TodoItem = (props: ITodoItemProps) => {
           className={`btn centerDiv ${
             props.item.completed ? 'checkBtn' : ' checkBtnFalse'
           }`}
-          onClick={() => props.onComplete(props.item.id)}>
+          onClick={() => handleComplete(props.item.id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -29,7 +40,7 @@ export const TodoItem = (props: ITodoItemProps) => {
         </p>
         <span
           className="btn deleteBtn centerDiv"
-          onClick={() => props.onDelete(props.item.id)}>
+          onClick={() => handleDelete(props.item.id)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"

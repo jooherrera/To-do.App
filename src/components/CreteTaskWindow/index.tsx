@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { context } from '../../context'
 import { Input } from '../Input'
 import './CreateTaskWindow.css'
 const CreateTaskWindow = () => {
+  const { setStatusModal } = useContext(context)
   const handleSave = () => {
     console.log('Guardandao task')
+    setStatusModal!(true)
   }
 
   return (

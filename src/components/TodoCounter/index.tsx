@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { context } from '../../context'
 import { ITodiCounterProps } from '../../types'
 import './TodoCounter.css'
-const TodoCounter = ({ total, completed }: ITodiCounterProps) => {
+const TodoCounter = () => {
+  const { totalTodos, completedTodos } = useContext(context)
   return (
     <>
       <h2>
-        Completed {completed} to {total}
+        Completed {completedTodos} to {totalTodos}
       </h2>
     </>
   )
