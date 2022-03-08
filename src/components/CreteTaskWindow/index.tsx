@@ -1,10 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Toast } from 'bootstrap'
+import { useContext } from 'react'
 import { context } from '../../context'
 import { Input } from '../Input'
 import './CreateTaskWindow.css'
-import logo from '../../logo.svg'
-import { ITodo } from '../../types'
 
 const CreateTaskWindow = () => {
   const { inputValue, addNewTask, loading } = useContext(context)

@@ -1,4 +1,3 @@
-import { Modal } from 'bootstrap'
 import React, { useContext, useState } from 'react'
 import { context } from '../../context'
 import { IInputProps } from '../../types'

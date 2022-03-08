@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { context } from '../../context'
-import { ITodo, ITodoListProps } from '../../types'
+import { ITodo } from '../../types'
 import { TodoItem } from '../TodoItem'
 import './TodoList.css'
 export const TodoList = () => {

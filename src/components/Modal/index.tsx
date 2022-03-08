@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from 'react'
+import { FC, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { context } from '../../context'
 import './Modal.css'

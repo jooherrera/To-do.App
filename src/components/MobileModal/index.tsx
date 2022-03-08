@@ -1,6 +1,5 @@
-import React, { FC, useContext } from 'react'
+import { FC } from 'react'
 import ReactDOM from 'react-dom'
-import { context } from '../../context'
 import CreateTaskWindow from '../CreteTaskWindow'
 import './MobileModal.css'
 

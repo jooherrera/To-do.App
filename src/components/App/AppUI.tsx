@@ -1,4 +1,3 @@
-import { IAppUIProps, IContext } from '../../types'
 import CreateTaskWindow from '../CreteTaskWindow'
 import { TodoCounter } from '../TodoCounter'
 import { TodoList } from '../TodoList'
@@ -8,11 +7,9 @@ import { context } from '../../context'
 import { useContext } from 'react'
 import { Modal } from '../Modal'
 import { MobileButton } from '../MobileButton'
-import { MobileModal } from '../MobileModal'
 
 export const AppUI = () => {
-  const { error, loading, totalTodos, lastTaskAdded, mobileAddTask } =
-    useContext(context)
+  const { error, loading, totalTodos, lastTaskAdded } = useContext(context)
 
   return (
     <>

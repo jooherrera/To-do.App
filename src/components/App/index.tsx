@@ -1,5 +1,5 @@
 import './App.css'
-import { Provider, context } from '../../context'
+import { Provider } from '../../context'
 import { AppUI } from './AppUI'
 
 function App() {

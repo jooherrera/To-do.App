@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { context } from '../../context'
-import { ITodo, ITodoItemProps } from '../../types'
+import { ITodoItemProps } from '../../types'
 import './TodoItem.css'
 
 export const TodoItem = (props: ITodoItemProps) => {

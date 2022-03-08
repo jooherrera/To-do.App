@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { context } from '../../context'
 import { MobileModal } from '../MobileModal'
 import './MobileButton.css'
 
 export const MobileButton = () => {
-  const { mobileAddTask, setMobileAddTask, loading } = useContext(context)
+  const { setMobileAddTask, loading } = useContext(context)
 
   return (
     <>

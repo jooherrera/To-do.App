@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-import { ITodoSearchProps } from '../../types'
 import { Input } from '../Input'
 
 export const TodoSearch = () => {
