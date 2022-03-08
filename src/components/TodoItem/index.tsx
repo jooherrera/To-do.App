@@ -6,13 +6,13 @@ import './TodoItem.css'
 export const TodoItem = (props: ITodoItemProps) => {
   const { completeTodo, deleteTodo } = useContext(context)
 
-  const handleComplete = (id: number) => {
+  const handleComplete = (id: string) => {
     if (completeTodo) {
       completeTodo(id)
     }
   }
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     if (deleteTodo) {
       deleteTodo(id)
     }

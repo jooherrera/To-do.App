@@ -13,3 +13,24 @@
   margin-right: auto;
   margin-top: 20px;
 }
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .createWindow {
+    display: none;
+  }
+  .App-container {
+    margin: 0;
+  }
+  .listWindow {
+    width: 100%;
+  }
+}
+
+/* #modal {
+  animation-name: fadeHide;
+  animation-duration: 4s;
+} */

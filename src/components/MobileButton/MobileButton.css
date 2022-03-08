@@ -1,0 +1,36 @@
+@media (max-width: 576px) {
+  .mobileBtn {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    /* z-index: 111; */
+    font-size: 30px;
+  }
+
+  .btnCustom {
+    background: transparent;
+    outline: none;
+    border: none;
+    /* z-index: 11111; */
+  }
+  .btnCustom:disabled {
+    opacity: 0.5;
+  }
+  /* .btnCustom:focus {
+    background-color: black;
+    border: none;
+  } */
+
+  .btnGrey {
+    color: grey;
+  }
+
+  .btnRed {
+    color: red;
+  }
+  .btnPrimary {
+    color: #0074d9;
+    /* z-index: 1; */
+  }
+}

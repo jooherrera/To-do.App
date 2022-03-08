@@ -1,5 +1,6 @@
 .TodoItem-Container {
-  width: 100%;
+  overflow: hidden;
+  width: 97%;
   height: 60px;
   display: flex;
   flex-direction: row;

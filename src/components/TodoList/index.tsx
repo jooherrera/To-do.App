@@ -4,17 +4,19 @@ import { ITodo, ITodoListProps } from '../../types'
 import { TodoItem } from '../TodoItem'
 import './TodoList.css'
 export const TodoList = () => {
-  const { searchValue, filteredTodos, todos } = useContext(context)
+  const { searchValue, todos } = useContext(context)
   let todoList: ITodo[]
   if (searchValue === '') {
     todoList = todos || []
   } else {
-    todoList = filteredTodos || []
+    todoList = todos!.filter((todo: ITodo) =>
+      todo.text.toLowerCase().includes(searchValue!.toLowerCase())
+    )
   }
 
   return (
     <>
-      <section>
+      <section className="sectionList">
         <ul>
           {todoList.map((todo) => (
             <li key={todo.id}>

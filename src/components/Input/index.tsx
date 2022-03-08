@@ -1,12 +1,15 @@
+import { Modal } from 'bootstrap'
 import React, { useContext, useState } from 'react'
 import { context } from '../../context'
 import { IInputProps } from '../../types'
 import './Input.css'
 
 export const Input = (props: IInputProps) => {
-  const { placeholder, isSearch } = props
-  const { setSearchValue, searchValue } = useContext(context)
   const [value, setValue] = useState('')
+  const { placeholder, isSearch } = props
+
+  const { setSearchValue, inputValue, setInputValue, addNewTask, loading } =
+    useContext(context)
   const [clicked, setClicked] = useState(false)
 
   const toggleEffect = () => {
@@ -20,18 +23,25 @@ export const Input = (props: IInputProps) => {
   const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
     setValue(event.target.value)
+    setInputValue!(event.target.value)
   }
 
   const handleBtnSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (setSearchValue) {
       event.preventDefault()
-      setSearchValue(value)
+      setSearchValue(inputValue!)
     }
   }
 
   const onPressEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.code === 'Enter') {
-      if (setSearchValue) setSearchValue(value)
+      if (isSearch) return setSearchValue!(inputValue!)
+      if (inputValue!.length > 5) {
+        setValue('')
+        addNewTask!()
+        return
+      }
+      alert('Ingrese mas de 5 letras')
     }
   }
 
@@ -46,6 +56,8 @@ export const Input = (props: IInputProps) => {
           placeholder={placeholder}
           onChange={onChangeValue}
           onKeyPress={onPressEnter}
+          disabled={loading}
+          value={value}
         />
         {isSearch ? (
           <button type="button" className="btnSearch" onClick={handleBtnSearch}>

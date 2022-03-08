@@ -7,34 +7,37 @@ import { TodoTitle } from '../TodoTitle'
 import { context } from '../../context'
 import { useContext } from 'react'
 import { Modal } from '../Modal'
+import { MobileButton } from '../MobileButton'
+import { MobileModal } from '../MobileModal'
 
 export const AppUI = () => {
-  const { statusModal, error, loading, totalTodos } = useContext(context)
+  const { error, loading, totalTodos, lastTaskAdded, mobileAddTask } =
+    useContext(context)
 
   return (
     <>
       <div className="App-container row h-100 justify-content-evenly ">
-        <div className="col-5 h-100 ">
+        <div className="col-md-5 h-100 createWindow ">
           <CreateTaskWindow />
         </div>
-        <div className="col-5 h-100 ">
+        <div className="col-md-5 col-sm-12 h-100 listWindow ">
           <div className="List-Container">
             <TodoTitle />
             <TodoCounter />
             <TodoSearch />
-            {error && <p className="mt-3">Hubo un error</p>}
-            {loading && !error && <p className="mt-3">Cargando</p>}
+            {error && <p className="mt-3">Something has gone wrong!!</p>}
+            {loading && !error && <p className="mt-3">Loading..</p>}
             {!loading && totalTodos === 0 && (
-              <p className="mt-3">Crea tu primer To-Do</p>
+              <p className="mt-3">Add your first To-Do</p>
             )}
             <TodoList />
-            {statusModal ? (
-              <Modal>
-                <p>Teletransportacioooooooooooooooon</p>
-              </Modal>
-            ) : null}
           </div>
         </div>
+        <Modal>
+          <p>Task added: {lastTaskAdded!}</p>
+        </Modal>
+
+        <MobileButton />
       </div>
     </>
   )

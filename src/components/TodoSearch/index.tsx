@@ -5,12 +5,14 @@ import { Input } from '../Input'
 export const TodoSearch = () => {
   return (
     <>
-      <Input
-        placeholder="Search.."
-        isSearch={true}
-        // searchValue={searchValue}
-        // setSearchValue={setSearchValue}
-      />
+      <div className="mb-4">
+        <Input
+          placeholder="Search.."
+          isSearch={true}
+          // searchValue={searchValue}
+          // setSearchValue={setSearchValue}
+        />
+      </div>
     </>
   )
 }

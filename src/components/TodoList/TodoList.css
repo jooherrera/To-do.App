@@ -4,3 +4,14 @@ li {
 ul {
   padding: 0;
 }
+
+.sectionList {
+  max-height: 75%;
+  overflow-y: overlay;
+}
+
+@media (max-width: 600px) {
+  .sectionList {
+    max-height: 60%;
+  }
+}

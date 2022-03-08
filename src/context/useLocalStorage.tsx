@@ -25,7 +25,7 @@ function useLocalStorage(key: string) {
         setError(true)
       }
     }, 2000)
-  }, [])
+  }, [key])
 
   const saveTodos = (newItem: ITodo[]) => {
     try {

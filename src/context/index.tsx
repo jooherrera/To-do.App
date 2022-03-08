@@ -1,31 +1,52 @@
 import React, { FC, useEffect, useState } from 'react'
 import { IContext, ITodo } from '../types'
 import { useLocalStorage } from './useLocalStorage'
+import { v4 as uuid4 } from 'uuid'
 
 const context = React.createContext<Partial<IContext>>({})
 
 const Provider: FC = ({ children }) => {
-  const [statusModal, setStatusModal] = useState(false) //MODAL
+  const [mobileAddTask, setMobileAddTask] = useState(false)
+  const [lastTaskAdded, setLastTaskAdded] = useState('')
+  const [toast, setToast] = useState(false) //MODAL
+  const [inputValue, setInputValue] = useState('') //Input new Task
 
   const { todos, saveTodos, loading, error } = useLocalStorage('TODOS_v1')
   const [searchValue, setSearchValue] = useState('')
+  const [added, setAdded] = useState(0)
 
   const completedTodos = todos.filter((todo: ITodo) => !!todo.completed).length
 
   const totalTodos = todos.length
 
-  const filteredTodos = todos.filter((todo: ITodo) =>
-    todo.text.toLowerCase().includes(searchValue.toLowerCase())
-  )
+  useEffect(() => {
+    setTimeout(() => {
+      setToast(false)
+    }, 4000)
+  }, [added])
 
-  const completeTodo = (id: number) => {
+  const addNewTask = () => {
+    const newTodos: ITodo[] = [...todos]
+    const newTask: ITodo = {
+      id: uuid4(),
+      text: inputValue,
+      completed: false,
+    }
+    newTodos.push(newTask)
+    saveTodos(newTodos)
+    setToast(true)
+    setLastTaskAdded(newTask.text)
+    setAdded(added + 1)
+  }
+
+  const completeTodo = (id: string) => {
     const newTodos: ITodo[] = [...todos]
     const todoIndex = todos.findIndex((todo: ITodo) => todo.id === id)
     newTodos[todoIndex].completed = true
     saveTodos(newTodos)
   }
 
-  const deleteTodo = (id: number) => {
+  const deleteTodo = (id: string) => {
     const newTodos: ITodo[] = [...todos]
     saveTodos(newTodos.filter((todo: ITodo) => todo.id !== id))
   }
@@ -47,11 +68,16 @@ const Provider: FC = ({ children }) => {
         searchValue,
         setSearchValue,
         todos,
-        filteredTodos,
         completeTodo,
         deleteTodo,
-        statusModal,
-        setStatusModal,
+        toast,
+        setToast,
+        inputValue,
+        setInputValue,
+        addNewTask,
+        lastTaskAdded,
+        setMobileAddTask,
+        mobileAddTask,
       }}>
       {children}
     </context.Provider>

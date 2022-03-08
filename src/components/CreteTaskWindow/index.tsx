@@ -1,26 +1,33 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { Toast } from 'bootstrap'
 import { context } from '../../context'
 import { Input } from '../Input'
 import './CreateTaskWindow.css'
+import logo from '../../logo.svg'
+import { ITodo } from '../../types'
+
 const CreateTaskWindow = () => {
-  const { setStatusModal } = useContext(context)
-  const handleSave = () => {
-    console.log('Guardandao task')
-    setStatusModal!(true)
+  const { inputValue, addNewTask, loading } = useContext(context)
+  const handToast = () => {
+    addNewTask!()
   }
 
   return (
     <>
       <div className="CreateTaskWindow">
         <h2 className="CTW-title px-5">Create new task</h2>
-        <p className="CTW-sub px-5">Task Name</p>
+        <p className="CTW-sub px-5">Task Title</p>
         <div className="CTW-Input mx-5 ">
-          <Input placeholder="Add new task" />
+          <Input placeholder="Add new task. [Min 5 letters]" />
         </div>
+
         <button
           type="button"
-          className="btn btn-success d-flex align-items-center mt-4 mx-5 "
-          onClick={handleSave}>
+          className="btn btn-success d-flex align-items-center justify-content-center mt-4 "
+          onClick={handToast}
+          disabled={loading || inputValue!.length <= 5}
+          id="liveToastBtn"
+          data-bs-dismiss="modal">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

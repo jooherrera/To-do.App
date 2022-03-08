@@ -22,6 +22,7 @@
   transform: scale(1.05);
 }
 .CreateTaskWindow button {
+  margin-left: 50px;
   width: 25%;
 }
 
@@ -48,4 +49,51 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.customToast {
+  animation-name: fadeHide;
+  animation-duration: 1s;
+}
+@keyframes fadeHide {
+  from {
+    display: block;
+  }
+  to {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .CreateTaskWindow {
+    background: rgba(194, 157, 157, 0.4);
+    border-radius: 10px;
+
+    /* background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.651) 0%,
+      rgba(255, 255, 255, 0.884) 76%
+    );
+   */
+
+    margin-top: 0px;
+  }
+
+  .CTW-title {
+    padding-top: 10px;
+    font-size: 2rem;
+    background-color: rgba(245, 222, 200, 0.794);
+    border-radius: 10px;
+  }
+
+  .CTW-sub {
+    padding-top: 0px;
+  }
+  .CreateTaskWindow button {
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-bottom: 20px;
+  }
 }

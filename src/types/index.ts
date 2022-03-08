@@ -17,7 +17,7 @@ export interface ITodoCreateButtonProps {
 }
 
 export interface ITodo {
-  id: number
+  id: string
   text: string
   completed: boolean
 }
@@ -46,8 +46,8 @@ export interface IAppUIProps {
   setSearchValue: Dispatch<React.SetStateAction<string>>
   todos: ITodo[]
   filteredTodos: ITodo[]
-  completeTodo: (id: number) => void
-  deleteTodo: (id: number) => void
+  completeTodo: (id: string) => void
+  deleteTodo: (id: string) => void
 }
 
 export interface IContext {
@@ -58,11 +58,16 @@ export interface IContext {
   searchValue: string
   setSearchValue: Dispatch<React.SetStateAction<string>>
   todos: ITodo[]
-  filteredTodos: ITodo[]
-  completeTodo: (id: number) => void
-  deleteTodo: (id: number) => void
-  statusModal: boolean
-  setStatusModal: Dispatch<React.SetStateAction<boolean>>
+  completeTodo: (id: string) => void
+  deleteTodo: (id: string) => void
+  toast: boolean
+  setToast: Dispatch<React.SetStateAction<boolean>>
+  inputValue: string
+  setInputValue: Dispatch<React.SetStateAction<string>>
+  addNewTask: () => void
+  lastTaskAdded: string
+  setMobileAddTask: Dispatch<React.SetStateAction<boolean>>
+  mobileAddTask: boolean
 }
 
 export interface IProvider {
