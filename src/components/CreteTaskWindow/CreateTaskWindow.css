@@ -69,6 +69,10 @@
 }
 
 @media (max-width: 576px) {
+  .CreateTaskWindow .btnWeb {
+    display: none !important;
+  }
+
   .CreateTaskWindow {
     background: rgba(194, 157, 157, 0.4);
     border-radius: 10px;
@@ -94,7 +98,8 @@
     padding-top: 0px;
   }
   .CreateTaskWindow .btnMobile {
-    width: 50%;
+    display: block;
+    width: 70%;
     left: 0;
     right: 0;
     margin: auto;
