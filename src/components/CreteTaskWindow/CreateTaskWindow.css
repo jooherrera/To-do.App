@@ -18,10 +18,10 @@
   margin-top: 20px;
 }
 
-.CreateTaskWindow button:hover {
+.CreateTaskWindow .btnWeb:hover {
   transform: scale(1.05);
 }
-.CreateTaskWindow button {
+.CreateTaskWindow .btnWeb {
   margin-left: 50px;
   width: 25%;
 }
@@ -64,6 +64,10 @@
   }
 }
 
+.btnMobile {
+  display: none;
+}
+
 @media (max-width: 576px) {
   .CreateTaskWindow {
     background: rgba(194, 157, 157, 0.4);
@@ -89,7 +93,7 @@
   .CTW-sub {
     padding-top: 0px;
   }
-  .CreateTaskWindow button {
+  .CreateTaskWindow .btnMobile {
     width: 50%;
     left: 0;
     right: 0;

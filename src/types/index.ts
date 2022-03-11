@@ -1,5 +1,28 @@
 import React, { Dispatch } from 'react'
 
+export interface IUseState {
+  todos?: ITodo[]
+  loading?: boolean
+  error?: boolean
+}
+
+export enum ActionType {
+  ERROR = 'ERROR',
+  SAVE = 'SAVE',
+  LOADING = 'LOADING',
+}
+
+export interface IReducerObject {
+  LOADING: IUseState
+  ERROR: IUseState
+  SAVE: IUseState
+}
+
+export interface IAction {
+  type: ActionType
+  payload?: any
+}
+
 export interface ITodoItemProps {
   item: ITodo
   // onComplete(id: number): void

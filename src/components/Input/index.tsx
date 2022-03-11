@@ -6,11 +6,9 @@ import './Input.css'
 export const Input = (props: IInputProps) => {
   const [value, setValue] = useState('')
   const { placeholder, isSearch } = props
-
   const { setSearchValue, inputValue, setInputValue, addNewTask, loading } =
     useContext(context)
   const [clicked, setClicked] = useState(false)
-
   const toggleEffect = () => {
     setClicked(true)
   }
@@ -21,26 +19,33 @@ export const Input = (props: IInputProps) => {
 
   const onChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
-    setValue(event.target.value)
-    setInputValue!(event.target.value)
+    if (isSearch) {
+      setValue(event.target.value)
+    } else {
+      setValue(event.target.value)
+      setInputValue!(event.target.value)
+    }
   }
 
   const handleBtnSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (setSearchValue) {
       event.preventDefault()
-      setSearchValue(inputValue!)
+      setSearchValue(value)
     }
   }
 
   const onPressEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.code === 'Enter') {
-      if (isSearch) return setSearchValue!(inputValue!)
-      if (inputValue!.length > 5) {
-        setValue('')
-        addNewTask!()
-        return
+      if (isSearch) {
+        setSearchValue!(value)
+      } else {
+        if (value!.length > 5) {
+          setValue('')
+          addNewTask!()
+          return
+        }
+        alert('Ingrese mas de 5 letras')
       }
-      alert('Ingrese mas de 5 letras')
     }
   }
 

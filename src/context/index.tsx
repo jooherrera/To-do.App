@@ -15,9 +15,9 @@ const Provider: FC = ({ children }) => {
   const [searchValue, setSearchValue] = useState('')
   const [added, setAdded] = useState(0)
 
-  const completedTodos = todos.filter((todo: ITodo) => !!todo.completed).length
+  const completedTodos = todos!.filter((todo: ITodo) => !!todo.completed).length
 
-  const totalTodos = todos.length
+  const totalTodos = todos!.length
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,7 +26,7 @@ const Provider: FC = ({ children }) => {
   }, [added])
 
   const addNewTask = () => {
-    const newTodos: ITodo[] = [...todos]
+    const newTodos: ITodo[] = [...todos!]
     const newTask: ITodo = {
       id: uuid4(),
       text: inputValue,
@@ -40,14 +40,14 @@ const Provider: FC = ({ children }) => {
   }
 
   const completeTodo = (id: string) => {
-    const newTodos: ITodo[] = [...todos]
-    const todoIndex = todos.findIndex((todo: ITodo) => todo.id === id)
+    const newTodos: ITodo[] = [...todos!]
+    const todoIndex = todos!.findIndex((todo: ITodo) => todo.id === id)
     newTodos[todoIndex].completed = true
     saveTodos(newTodos)
   }
 
   const deleteTodo = (id: string) => {
-    const newTodos: ITodo[] = [...todos]
+    const newTodos: ITodo[] = [...todos!]
     saveTodos(newTodos.filter((todo: ITodo) => todo.id !== id))
   }
 
