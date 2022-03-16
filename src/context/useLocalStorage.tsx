@@ -34,7 +34,7 @@ function useLocalStorage(key: string) {
         dispatch({ type: ActionType.ERROR })
         // setError(true)
       }
-    }, 2000)
+    }, 1000)
   }, [key])
 
   const saveTodos = (newItem: ITodo[]) => {
@@ -59,10 +59,7 @@ function useLocalStorage(key: string) {
 
 export { useLocalStorage }
 
-const reducerObject = (
-  state?: IUseState,
-  action?: IAction
-): IReducerObject => ({
+const reducerObject = (state?: IUseState, action?: IAction): IReducerObject => ({
   ERROR: { ...state, error: true },
   SAVE: { ...state, todos: action?.payload },
   LOADING: { ...state, loading: false },

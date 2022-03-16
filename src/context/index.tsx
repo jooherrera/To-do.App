@@ -51,13 +51,6 @@ const Provider: FC = ({ children }) => {
     saveTodos(newTodos.filter((todo: ITodo) => todo.id !== id))
   }
 
-  console.log('RENDER (Antes del useEffect)')
-
-  useEffect(() => {
-    console.log('Use effect')
-  }, [totalTodos])
-  console.log('RENDER (Despues del useEffect)')
-
   return (
     <context.Provider
       value={{
